@@ -110,7 +110,7 @@ module.exports.getAuthURL = async () => {
  * and gets the calendar events from the "fullstackwebdev" Google calendar
  */
 
- module.exports.getCalendarEvents = async (event) => {
+ module.exports.getCalendarEvents = event => {
   const oAuth2Client = new google.auth.OAuth2(
     client_id,
     client_secret,
@@ -145,7 +145,7 @@ module.exports.getAuthURL = async () => {
     .then((results) => {
       return {
         statusCode: 200,
-        headers: {
+        headers: { 
           'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify({ events: results.data.items }),

@@ -186,7 +186,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/auth-server/dev/1650120881215-2022-04-16T14:54:41.215Z/auth-server.zip"
+                "S3Key": "serverless/auth-server/dev/1650120931180-2022-04-16T14:55:31.180Z/auth-server.zip"
               },
               "Handler": "handler.getAuthURL",
               "Runtime": "nodejs12.x",
@@ -219,7 +219,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/auth-server/dev/1650120881215-2022-04-16T14:54:41.215Z/auth-server.zip"
+                "S3Key": "serverless/auth-server/dev/1650120931180-2022-04-16T14:55:31.180Z/auth-server.zip"
               },
               "Handler": "handler.getAccessToken",
               "Runtime": "nodejs12.x",
@@ -420,7 +420,7 @@
               "GetAccessTokenLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1650120877214": {
+          "ApiGatewayDeployment1650120927651": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -715,7 +715,7 @@
     "artifact": "/Users/omar/Documents/CF-AG/meet/auth-server/.serverless/auth-server.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/auth-server/dev/1650120881215-2022-04-16T14:54:41.215Z",
+    "artifactDirectoryName": "serverless/auth-server/dev/1650120931180-2022-04-16T14:55:31.180Z",
     "artifact": "auth-server.zip"
   }
 }
