@@ -186,7 +186,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/auth-server/dev/1650034157449-2022-04-15T14:49:17.449Z/auth-server.zip"
+                "S3Key": "serverless/auth-server/dev/1650120612055-2022-04-16T14:50:12.055Z/auth-server.zip"
               },
               "Handler": "handler.getAuthURL",
               "Runtime": "nodejs12.x",
@@ -219,7 +219,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/auth-server/dev/1650034157449-2022-04-15T14:49:17.449Z/auth-server.zip"
+                "S3Key": "serverless/auth-server/dev/1650120612055-2022-04-16T14:50:12.055Z/auth-server.zip"
               },
               "Handler": "handler.getAccessToken",
               "Runtime": "nodejs12.x",
@@ -420,7 +420,7 @@
               "GetAccessTokenLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1650034153108": {
+          "ApiGatewayDeployment1650120608482": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -697,6 +697,17 @@
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
+      },
+      "getCalendarEvents": {
+        "handler": "handler.getCalendarEvents",
+        "events": [
+          {
+            "http": {
+              "path": "api/get-events/{access_token}",
+              "method": "get"
+            }
+          }
+        ]
       }
     },
     "layers": {},
@@ -704,7 +715,7 @@
     "artifact": "/Users/omar/Documents/CF-AG/meet/auth-server/.serverless/auth-server.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/auth-server/dev/1650034157449-2022-04-15T14:49:17.449Z",
+    "artifactDirectoryName": "serverless/auth-server/dev/1650120612055-2022-04-16T14:50:12.055Z",
     "artifact": "auth-server.zip"
   }
 }
