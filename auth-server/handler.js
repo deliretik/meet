@@ -110,7 +110,7 @@ module.exports.getAuthURL = async () => {
  * and gets the calendar events from the "fullstackwebdev" Google calendar
  */
 
- module.exports.getCalendarEvents = event => {
+ module.exports.getCalendarEvents = async event => {
   const oAuth2Client = new google.auth.OAuth2(
     client_id,
     client_secret,
