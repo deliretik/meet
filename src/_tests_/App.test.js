@@ -7,29 +7,28 @@ import NumberOfEvents from '../NumberOfEvents';
 import { mockData } from '../mock-data';
 import { extractLocations, getEvents } from '../api';
 
-
-
-
 describe('<App /> component', () => {
-    let AppWrapper;
+
+  // refactoring; beforeAll to not rewrite this function in every test
+  let AppWrapper;
   beforeAll(() => {
     AppWrapper = shallow(<App />);
   });
 
-    //test rendering a list of events
-    test('render list of events', () => {
-        expect(AppWrapper.find(EventList)).toHaveLength(1);
-      });
+  test('render list of events', () => {
+    expect(AppWrapper.find(EventList)).toHaveLength(1);
+  });
 
-      //test rendering CitySearch
-      test('render CitySearch', () => {
-        expect(AppWrapper.find(CitySearch)).toHaveLength(1);
-      });
-      
-      //test feature 2
-      test('render NumberOfEvents', () => {
-        expect(AppWrapper.find(NumberOfEvents)).toHaveLength(1);
-      });
+  test('render CitySearch', () => {
+    expect(AppWrapper.find(CitySearch)).toHaveLength(1);
+  });
+
+  // Feature 2
+
+  test('render NumberOfEvents', () => {
+    expect(AppWrapper.find(NumberOfEvents)).toHaveLength(1);
+  });
+
 });
 
 describe('<App /> integration', () => {
@@ -73,23 +72,23 @@ describe('<App /> integration', () => {
     expect(AppWrapper.state('events')).toEqual(allEvents);
     AppWrapper.unmount();
   });
+
+  // NumberOfEvents integration testing
+  test('pass number of events as 32 per default', () => {
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsState = AppWrapper.state('numberOfEvents');
+    expect(NumberOfEventsState).not.toEqual(undefined);
+    expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toEqual(32);
+    AppWrapper.unmount();
+  })
+
+  test('change numberOfEvents state when NumberOfEvents changes', async () => {
+    const AppWrapper = mount(<App />);
+    AppWrapper.find('.number-of-events').simulate('change', { target: { value: 12 } });
+    expect(AppWrapper.state('numberOfEvents')).toEqual(12);
+    AppWrapper.unmount();
+  })
+
 });
-
-//NumberOfEvents integration tests
-test('pass number of events as 32 per default', () => {
-  const AppWrapper = mount(<App />);
-  const NumberOfEventsState = AppWrapper.state('numberOfEvents');
-  expect(NumberOfEventsState).not.toEqual(undefined);
-  expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toEqual(32);
-  AppWrapper.unmount();
-})
-
-test('change numberOfEvents state when NumberOfEvents changes', async () => {
-  const AppWrapper = mount(<App />);
-  AppWrapper.find('.number-of-events').simulate('change', { target: { value: 12 } });
-  expect(AppWrapper.state('numberOfEvents')).toEqual(12);
-  AppWrapper.unmount();
-})
-
 
   
